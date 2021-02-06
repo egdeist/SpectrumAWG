@@ -106,6 +106,10 @@ class OpenCard:
         print("in __exit__")
         spcm_vClose(self.hCard)
 
+    def __del__(self):
+        print('\nexiting...')
+        spcm_vClose(self.hCard)
+
     ################# PUBLIC FUNCTIONS #################
 
     #### Segment Object Handling ####
@@ -682,7 +686,7 @@ class Segment:
         """
         if not self.Latest:
             self.compute()
-        plt.plot(self.Buffer, '--o')
+        plt.plot(self.Buffer, '-')
         plt.show()
 
 

@@ -5,8 +5,8 @@ import pyvisa
 import time
 
 ## Open Card/Configure ##
-card = OpenCard(mode='continuous')
-card.setup_channels(amplitude=200)
+# card = OpenCard(mode='continuous')
+# card.setup_channels(amplitude=200)
 
 
 ## For communicating with Instruments ##
@@ -61,13 +61,14 @@ def optimize_phases(segment, N):
 
 ## Main ##
 for N in ntraps:
-    phases = np.zeros(N)
+    pass
+    # phases = np.zeros(N)
 
-    for fc in centers:
-        for sep in spacings:
-            freq = [(fc - sep*(N-1)/2) + i*sep for i in range(N)]
-            segment = Segment(freqs=freq, sample_length=16E4)
-            optimize_phases(segment, N)
+    # for fc in centers:
+    #     for sep in spacings:
+    #         freq = [(fc - sep*(N-1)/2) + i*sep for i in range(N)]
+    #         segment = Segment(freqs=freq, sample_length=16E4)
+    #         optimize_phases(segment, N)
 
 ## Done! ##
 print("Done -- Success!")
